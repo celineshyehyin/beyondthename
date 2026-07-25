@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond The Name · 认领活动</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#6B5545;
+    --ink-2:#8A6F8C;
+    --ink-3:#7C6699;
+    --paper:#FFFDF8;
+    --paper-dim:#FBEFE4;
+    --gold:#F2A65A;
+    --gold-deep:#E08A3C;
+    --rose:#F0919F;
+    --peri:#B39DDB;
+    --blue:#6FA8CC;
+    --line:rgba(242,166,90,0.35);
+    --ok-text:#4B7A5C;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(circle at 12% 10%, rgba(255,197,214,0.55), transparent 42%),
+      radial-gradient(circle at 88% 12%, rgba(201,184,240,0.5), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(255,214,168,0.45), transparent 50%),
+      #FFF7EE;
+    color:var(--ink);
+    font-family:"Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    min-height:100vh;
+    padding:32px 16px 80px;
+  }
+  .wrap{max-width:880px;margin:0 auto;position:relative;z-index:1;}
+  h1,h2,h3{font-family:"Noto Serif SC","Songti SC",serif;margin:0;}
+  .eyebrow{
+    font-family:"Baloo 2","Noto Sans SC",sans-serif;
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold-deep);font-weight:700;
+  }
+  .hero{
+    text-align:center;padding:20px 12px 30px;position:relative;
+  }
+  .hero h1{font-size:40px;font-weight:900;color:#6B4A57;letter-spacing:.04em;margin:10px 0 8px;}
+  .hero .wing{font-size:28px;display:inline-block;margin:0 8px;filter:drop-shadow(0 2px 4px rgba(224,138,60,0.35));animation:wingFlap 2.6s ease-in-out infinite;}
+  .hero .wing.right{animation-delay:.3s;}
+  .hero p{color:#8B7568;font-size:14.5px;line-height:1.8;max-width:520px;margin:0 auto;}
+  @keyframes wingFlap{
+    0%,100%{transform:rotate(0deg) translateY(0);}
+    50%{transform:rotate(-6deg) translateY(-2px);}
+  }
+  .counter{
+    display:inline-flex;align-items:center;gap:10px;margin-top:20px;
+    background:#FFFDF8;border:1px solid var(--line);border-radius:999px;
+    padding:8px 20px;font-size:13px;color:var(--ink);
+    box-shadow:0 6px 16px rgba(224,138,60,0.15);
+  }
+  .counter b{color:var(--gold-deep);font-family:"Baloo 2",serif;font-size:17px;}
+  .card{
+    background:var(--paper);color:#5C4A3D;border-radius:26px;
+    padding:28px 26px;position:relative;box-shadow:0 20px 45px rgba(180,140,150,0.22);
+    border:1px solid rgba(242,166,90,0.2);
+  }
+  .card::after{
+    content:"✨";position:absolute;top:16px;right:20px;font-size:16px;opacity:.4;
+    pointer-events:none;
+  }
+  .rule-box{
+    background:linear-gradient(135deg, #FFF1E9, #FCE9F2);border:1px solid var(--line);border-radius:18px;
+    padding:16px 20px;margin:0 0 22px;font-size:13.5px;line-height:1.9;color:#7A6659;
+  }
+  .rule-box b{color:var(--gold-deep);}
+  label.field-label{
+    display:block;font-size:12.5px;color:#9C8574;letter-spacing:.05em;
+    text-transform:uppercase;font-weight:700;margin-bottom:8px;
+  }
+  input[type=text], textarea{
+    width:100%;font-family:inherit;font-size:15px;padding:12px 14px;
+    border:1.5px solid #F0DCC6;border-radius:16px;background:#FFFDF8;color:#5C4A3D;
+    outline:none;transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  input[type=text]:focus, textarea:focus{border-color:var(--gold-deep);box-shadow:0 0 0 3px rgba(242,166,90,0.2);}
+  textarea{min-height:100px;resize:vertical;line-height:1.7;}
+  .btn{
+    font-family:"Baloo 2","Noto Sans SC",sans-serif;font-size:14.5px;font-weight:700;
+    border-radius:999px;padding:12px 24px;border:none;cursor:pointer;
+    transition:transform .15s cubic-bezier(.34,1.56,.64,1), opacity .12s ease, box-shadow .15s ease;
+  }
+  .btn:active{transform:scale(0.94) rotate(-1deg);}
+  .btn:hover{transform:translateY(-2px) scale(1.03) rotate(-0.5deg);}
+  .btn-gold{background:linear-gradient(135deg, #F7B96B, #EE9354);color:#5A3210;box-shadow:0 8px 20px rgba(224,138,60,0.35);}
+  .btn-gold:hover{background:linear-gradient(135deg, #F3A855, #E7893C);box-shadow:0 10px 24px rgba(224,138,60,0.4);}
+  .btn-ghost{background:#FFFDF8;color:#9C8574;border:1.5px solid #F0DCC6;}
+  .btn-ghost:hover{background:#FCF1E4;}
+  .btn-dark{background:linear-gradient(135deg, #8A6F8C, #6B5545);color:#FFF6EC;}
+  .btn[disabled]{opacity:.5;cursor:not-allowed;}
+  .btn[disabled]:hover{transform:none;}
+  .name-list{
+    max-height:220px;overflow-y:auto;margin-top:10px;border:1px solid #F0DCC6;
+    border-radius:16px;background:#FFFDF8;
+  }
+  .name-list div{padding:10px 14px;font-size:14.5px;cursor:pointer;border-bottom:1px solid #FBEFE0;}
+  .name-list div:last-child{border-bottom:none;}
+  .name-list div:hover{background:#FCF0DD;}
+  .name-list .empty{color:#B2A08F;cursor:default;padding:14px;}
+  .name-list .empty:hover{background:none;}
+  .search-bar{
+    display:flex;gap:10px;margin:22px 0 16px;position:sticky;top:10px;z-index:5;
+  }
+  .search-bar input{flex:1;}
+  .seat-grid{
+    display:grid;grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+    gap:14px;
+  }
+  .seat{
+    position:relative;background:var(--paper);border-radius:18px;
+    padding:14px 16px 14px 18px;display:flex;align-items:center;gap:10px;
+    cursor:pointer;border:1.5px dashed var(--gold);
+    transition:transform .15s cubic-bezier(.34,1.56,.64,1), box-shadow .12s ease;
+  }
+  .seat:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(224,138,60,0.22);}
+  .seat::before, .seat::after{
+    content:"";position:absolute;left:-8px;width:16px;height:16px;
+    background:#FFF7EE;border-radius:50%;
+  }
+  .seat::before{top:-8px;}
+  .seat::after{bottom:-8px;}
+  .seat .halo{font-size:14px;flex-shrink:0;opacity:.75;}
+  .seat .no{
+    font-family:"Noto Serif SC",serif;font-weight:700;font-size:12px;color:#C08A48;
+    writing-mode:vertical-rl;letter-spacing:.1em;opacity:.7;
+  }
+  .seat .nm{font-size:16px;font-weight:500;color:#5C4A3D;flex:1;}
+  .seat.taken{
+    cursor:not-allowed;border-style:solid;border-color:#E3CFC1;
+    background:var(--paper-dim);opacity:.6;
+  }
+  .seat.taken .nm{text-decoration:line-through;text-decoration-color:#C0A692;}
+  .seat.taken .stamp{
+    font-size:11px;font-weight:700;color:var(--rose);border:1px solid var(--rose);
+    border-radius:4px;padding:2px 6px;letter-spacing:.05em;transform:rotate(-6deg);
+  }
+  .empty-state{
+    text-align:center;padding:50px 20px;color:#B39DAA;font-size:14px;
+  }
+  .modal-mask{
+    position:fixed;inset:0;background:rgba(107,81,66,0.45);display:flex;
+    align-items:center;justify-content:center;z-index:50;padding:20px;
+    animation:maskIn .18s ease both;
+  }
+  @keyframes maskIn{from{opacity:0;}to{opacity:1;}}
+  .modal{
+    background:var(--paper);color:#5C4A3D;border-radius:26px;max-width:380px;
+    width:100%;padding:26px 24px;text-align:center;
+    box-shadow:0 25px 55px rgba(107,81,66,0.3);
+    animation:modalIn .22s cubic-bezier(.2,.8,.3,1.2) both;
+  }
+  .modal.wide{max-width:460px;text-align:left;}
+  @keyframes modalIn{from{opacity:0;transform:translateY(12px) scale(.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+  .modal h3{font-size:20px;margin-bottom:10px;}
+  .modal .target-name{font-size:26px;font-weight:900;color:var(--gold-deep);margin:14px 0;font-family:"Baloo 2",serif;}
+  .modal p{font-size:13.5px;color:#9C8574;line-height:1.7;margin-bottom:20px;}
+  .modal .actions{display:flex;gap:10px;justify-content:center;}
+  .ticket{
+    background:var(--paper);color:#5C4A3D;border-radius:26px;overflow:hidden;
+    display:flex;box-shadow:0 25px 55px rgba(180,140,150,0.3);
+  }
+  .ticket-main{flex:1;padding:34px 30px;}
+  .ticket-stub{
+    width:120px;background:linear-gradient(160deg, #C9B6E8, #F0A8B4);color:#FFF9F2;display:flex;
+    flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    border-left:2px dashed #FFF3E9;position:relative;
+  }
+  .ticket-stub .wing{font-size:30px;filter:drop-shadow(0 2px 3px rgba(107,81,66,0.25));}
+  .ticket-stub span{font-size:11px;letter-spacing:.15em;writing-mode:vertical-rl;color:#FFF3E9;}
+  .ticket-eyebrow{font-size:12px;letter-spacing:.2em;color:#C08A48;text-transform:uppercase;font-weight:700;}
+  .ticket-main h2{font-size:14px;color:#9C8574;margin-top:6px;font-family:"Noto Sans SC",sans-serif;font-weight:700;}
+  .ticket-target{font-size:34px;font-weight:900;margin:14px 0 6px;color:#6B4A57;font-family:"Baloo 2","Noto Serif SC",serif;}
+  .ticket-divider{border-top:1.5px dashed #F0DCC6;margin:20px 0;}
+  .ticket-note{font-size:13.5px;color:#9C8574;line-height:1.85;}
+  .switch-link{
+    display:block;text-align:center;margin-top:18px;font-size:12.5px;color:#B39DC7;
+    cursor:pointer;text-decoration:underline;
+  }
+  .footer-admin{
+    text-align:center;margin-top:50px;font-size:11.5px;color:#C0A692;cursor:pointer;
+  }
+  .err-msg{
+    background:rgba(240,145,159,0.15);border:1px solid var(--rose);color:#B0546A;
+    border-radius:10px;padding:10px 14px;font-size:13px;margin-bottom:16px;
+  }
+  .admin-panel{background:var(--paper);color:#5C4A3D;border-radius:22px;padding:26px;}
+  .admin-panel h3{margin-bottom:14px;}
+  .admin-row{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px solid #FBEFE0;}
+  .pair-list{max-height:360px;overflow-y:auto;font-size:13.5px;margin-top:10px;}
+  .pair-item{padding:8px 4px;border-bottom:1px solid #FBEFE0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;}
+  .pair-item .pp{flex:1;min-width:140px;}
+  .pair-item .actions-mini{display:flex;gap:6px;}
+  .btn-mini{font-size:12px;padding:6px 12px;border-radius:999px;border:1.5px solid #F0DCC6;background:#FFFDF8;color:#9C8574;cursor:pointer;font-weight:700;}
+  .btn-mini:hover{background:#FCF1E4;}
+  .btn-mini.danger{border-color:var(--rose);color:#C25B6B;}
+  .btn-mini.danger:hover{background:rgba(240,145,159,0.12);}
+  .danger{color:#C25B6B;}
+  .wish-card{
+    background:linear-gradient(135deg, #FFFDF8, #FCEFE0);
+    border:1.5px dashed var(--gold);border-radius:18px;
+    padding:32px 24px 22px;margin-top:22px;position:relative;
+    box-shadow:0 15px 35px rgba(224,138,60,0.15);color:#5C4A3D;
+  }
+  .wish-card::before{
+    content:"👼";position:absolute;top:-19px;left:50%;transform:translateX(-50%);
+    background:linear-gradient(135deg, #F7B96B, #EE9354);width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:17px;
+    box-shadow:0 6px 14px rgba(224,138,60,0.35);
+  }
+  .wish-card h4{
+    font-family:"Noto Serif SC",serif;font-size:16px;color:var(--gold-deep);
+    text-align:center;margin-bottom:18px;letter-spacing:.08em;
+  }
+  .wish-row{display:flex;gap:12px;padding:9px 2px;border-bottom:1px dashed #F0DCC6;font-size:14px;align-items:baseline;}
+  .wish-row:last-child{border-bottom:none;}
+  .wish-row .wi-icon{font-size:15px;width:22px;flex-shrink:0;text-align:center;}
+  .wish-row .wi-label{color:#C08A48;font-weight:700;min-width:108px;flex-shrink:0;}
+  .wish-row .wi-value{color:#5C4A3D;flex:1;line-height:1.6;}
+  .wish-empty{text-align:center;color:#B2A08F;font-size:13.5px;padding:18px 0;}
+
+  /* ---- Mission cover (Beyond The Name) ---- */
+  .mission-banner{text-align:center;margin-bottom:4px;position:relative;padding:6px 10px 0;}
+  .mb-deco{position:absolute;pointer-events:none;opacity:.9;filter:drop-shadow(0 2px 3px rgba(224,138,60,0.15));}
+  .mb-deco.spin{animation:decoSpin 5s linear infinite;}
+  .mb-deco.twinkle, .sm-deco.twinkle{animation:decoTwinkle 2.2s ease-in-out infinite;}
+  @keyframes decoSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  @keyframes decoTwinkle{0%,100%{opacity:.35;transform:scale(.85);}50%{opacity:1;transform:scale(1.1);}}
+  .mission-banner .tag{
+    display:inline-block;background:#FDF3E7;border:2px dashed var(--gold);border-radius:20px;
+    padding:10px 30px;font-family:"Baloo 2","Noto Serif SC",serif;font-weight:800;font-size:22px;color:#6B4A57;
+    transform:rotate(-1deg);box-shadow:0 8px 18px rgba(224,138,60,0.18);position:relative;
+  }
+  .mission-banner .tag::before, .mission-banner .tag::after{
+    content:"";position:absolute;top:-9px;width:34px;height:16px;background:rgba(242,166,90,0.4);
+    box-shadow:0 2px 4px rgba(0,0,0,0.08);
+  }
+  .mission-banner .tag::before{left:12px;transform:rotate(-8deg);}
+  .mission-banner .tag::after{right:12px;transform:rotate(8deg);}
+  .mission-banner .tag .heart{display:inline-block;animation:pulseHeart 1.8s ease-in-out infinite;}
+  .mission-banner .envelope-deco{
+    position:absolute;top:-6px;right:6px;font-size:26px;transform:rotate(12deg);
+    filter:drop-shadow(0 3px 5px rgba(224,138,60,0.25));animation:floatIcon 3.4s ease-in-out infinite;
+  }
+  @keyframes pulseHeart{0%,100%{transform:scale(1);}50%{transform:scale(1.18);}}
+  .mission-goal{
+    background:linear-gradient(135deg,#FFF3E4,#FCEFE0);border:1.5px dashed var(--gold);
+    border-radius:20px;padding:20px 22px;margin:26px 0 22px;display:flex;gap:16px;align-items:center;text-align:left;
+  }
+  .target-icon{flex-shrink:0;animation:floatIcon 3s ease-in-out infinite;}
+  .mission-goal .goal-text b{font-family:"Baloo 2","Noto Sans SC",sans-serif;display:block;color:var(--gold-deep);font-size:12.5px;letter-spacing:.06em;margin-bottom:4px;text-transform:uppercase;}
+  .mission-goal .goal-text p{margin:0;font-size:13.5px;line-height:1.7;color:#6B5545;}
+  .mission-rules-title{font-family:"Baloo 2","Noto Sans SC",sans-serif;text-align:center;font-size:16px;letter-spacing:.08em;color:var(--ink-3);margin:26px 0 14px;font-weight:700;}
+
+  .rule-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left;}
+  @media (max-width:560px){.rule-grid{grid-template-columns:1fr;}}
+  .rule-card{border-radius:20px;padding:18px 18px 16px;position:relative;border:1.5px solid;transition:transform .15s cubic-bezier(.34,1.56,.64,1), box-shadow .15s ease;text-align:left;}
+  .rule-card:hover{transform:translateY(-3px) rotate(-0.5deg);}
+  .rule-card .num{
+    width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:900;color:#fff;font-size:15px;margin-bottom:9px;box-shadow:0 4px 10px rgba(0,0,0,0.12);
+  }
+  .rule-card h5{font-size:15px;margin:0;color:#5C4A3D;line-height:1.4;}
+  .rule-card h5 .cn{font-weight:700;color:#8A6F8C;font-size:13px;display:block;margin-top:1px;}
+  .rule-card p{font-size:12.6px;line-height:1.65;color:#8B7568;margin:9px 0 0;}
+  .rule-card.pink{background:#FFF3F5;border-color:#F6C3CC;}.rule-card.pink .num{background:var(--rose);}
+  .rule-card.purple{background:#F5F1FC;border-color:#D9CCF0;}.rule-card.purple .num{background:var(--peri);}
+  .rule-card.blue{background:#EFF6FC;border-color:#C6E0F0;}.rule-card.blue .num{background:var(--blue);}
+  .rule-card.orange{background:#FFF6EA;border-color:#F3D6A8;}.rule-card.orange .num{background:var(--gold-deep);}
+
+  /* ---- Your Mission Progress checklist (ticket page) ---- */
+  .journey-box{margin-top:22px;text-align:left;}
+  .journey-title{font-family:"Baloo 2","Noto Sans SC",sans-serif;font-size:14px;letter-spacing:.08em;color:var(--ink-3);font-weight:700;margin-bottom:12px;text-align:center;}
+  .journey-step{
+    display:flex;gap:12px;align-items:flex-start;padding:14px 14px;border-radius:18px;
+    border:1.5px solid #F0DCC6;background:#FFFDF8;margin-bottom:10px;transition:all .2s ease;
+  }
+  .journey-step.done{background:#F6FBF3;border-color:#CFE7C4;opacity:.85;}
+  .journey-step.current{border-color:var(--rose);box-shadow:0 8px 18px rgba(240,145,159,0.18);background:#FFF6F8;}
+  .journey-step.upcoming{opacity:.55;}
+  .journey-check{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:900;border:2px solid #E3CFC1;color:transparent;margin-top:1px;
+  }
+  .journey-step.done .journey-check{background:var(--ok-text);border-color:var(--ok-text);color:#fff;}
+  .journey-step.current .journey-check{border-color:var(--rose);color:var(--rose);}
+  .journey-step.current .journey-check::after{content:"●";font-size:9px;}
+  .journey-text{flex:1;}
+  .journey-text h5{margin:0;font-size:14px;color:#5C4A3D;}
+  .journey-text h5 .cn{font-weight:700;color:#8A6F8C;font-size:12.5px;display:block;margin-top:1px;}
+  .journey-text p{margin:6px 0 0;font-size:12.3px;line-height:1.6;color:#8B7568;}
+  .journey-step .btn{margin-top:10px;}
+  .journey-gift-check{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:13px;color:#6B5545;cursor:pointer;}
+  .journey-gift-check input{width:16px;height:16px;accent-color:var(--rose);cursor:pointer;}
+  .journey-complete-note{
+    text-align:center;margin-top:4px;padding:14px;border-radius:16px;background:linear-gradient(135deg,#FFF6EA,#FCE9F2);
+    font-size:12.5px;color:#8B7568;
+  }
+
+  .special-mission{
+    margin-top:24px;border:2px dashed var(--peri);border-radius:24px;padding:30px 20px 20px;position:relative;
+    background:linear-gradient(135deg,#FBF7FF,#FFF6F2);display:flex;gap:16px;align-items:center;text-align:left;
+    transition:transform .2s cubic-bezier(.34,1.56,.64,1);flex-wrap:wrap;justify-content:center;
+  }
+  @media (max-width:520px){.special-mission{text-align:center;}}
+  .special-mission:hover{transform:translateY(-3px);}
+  .special-mission .sm-badge{
+    font-family:"Baloo 2","Noto Sans SC",sans-serif;
+    position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+    background:linear-gradient(135deg,#C9B6E8,#F0A8B4);color:#fff;font-size:11.5px;font-weight:800;
+    letter-spacing:.08em;padding:6px 18px;border-radius:999px;box-shadow:0 6px 14px rgba(179,157,219,0.35);
+  }
+  .special-mission h5{margin:0 0 4px;font-size:14.5px;color:#6B4A57;}
+  .special-mission h5 .cn{font-weight:700;color:#8A6F8C;font-size:12.5px;display:block;margin-top:1px;}
+  .special-mission p{margin:0;font-size:12.3px;line-height:1.65;color:#8B7568;}
+  @keyframes floatIcon{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+  /* SVG angel + bag-charm illustrations */
+  .angel-illust{flex-shrink:0;width:78px;height:84px;animation:floatIcon 3.2s ease-in-out infinite;filter:drop-shadow(0 6px 8px rgba(224,138,60,0.18));}
+  .charm-illust{flex-shrink:0;width:96px;height:84px;animation:floatIcon 3.6s ease-in-out infinite;animation-delay:.4s;filter:drop-shadow(0 6px 8px rgba(179,157,219,0.2));}
+  @media (max-width:560px){.charm-illust{width:78px;height:68px;}}
+  .special-mission{overflow:visible;}
+  .sm-deco{position:absolute;pointer-events:none;}
+
+  .mission-tagline{text-align:center;margin-top:24px;font-size:13px;color:#B39DC7;font-style:italic;}
+  .mission-tagline .cn{display:block;margin-top:3px;font-style:normal;}
+  .mission-cta{margin-top:26px;text-align:center;}
+
+  .lang-toggle{
+    position:fixed;top:16px;right:16px;z-index:12;background:#FFFDF8;border:1.5px solid var(--line);
+    border-radius:999px;padding:8px 18px;font-size:12.5px;font-weight:700;color:var(--gold-deep);
+    font-family:"Baloo 2","Noto Sans SC",sans-serif;
+    cursor:pointer;box-shadow:0 6px 14px rgba(224,138,60,0.18);transition:transform .15s cubic-bezier(.34,1.56,.64,1);
+  }
+  .lang-toggle:hover{transform:translateY(-2px) scale(1.06) rotate(-2deg);}
+  .footer-admin{transition:transform .15s ease, color .15s ease;}
+  .footer-admin:hover{color:var(--gold-deep);transform:scale(1.04);}
+  @media (max-width:480px){
+    .hero h1{font-size:28px;}
+    .ticket{flex-direction:column;}
+    .ticket-stub{width:100%;flex-direction:row;padding:14px;border-left:none;border-top:2px dashed #FFF3E9;}
+    .ticket-stub span{writing-mode:horizontal-tb;}
+    .lang-toggle{top:10px;right:10px;padding:6px 14px;font-size:11px;}
+    .mission-banner .tag{font-size:16px;padding:8px 18px;}
+  }
+  .bg-decor{
+    position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+  }
+  .bg-decor span{
+    position:absolute;opacity:.16;filter:saturate(0.9);
+    animation:bgfloat 7s ease-in-out infinite;
+  }
+  .bg-decor span:nth-child(even){animation-duration:9s;animation-delay:1.5s;}
+  .bg-decor span:nth-child(3n){animation-duration:5.5s;animation-delay:.8s;}
+  @keyframes bgfloat{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-14px) rotate(6deg);}
+  }
+  .sparkle-burst{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden;}
+  .sparkle-burst span{position:absolute;opacity:0;animation:sparkleUp 1.5s ease-out forwards;}
+  @keyframes sparkleUp{
+    0%{opacity:0;transform:translateY(0) scale(.6) rotate(0deg);}
+    15%{opacity:1;}
+    100%{opacity:0;transform:translateY(-140px) scale(1.15) rotate(20deg);}
+  }
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .card, .ticket, .admin-panel, .wish-card{animation:fadeInUp .45s ease both;}
+  @media (prefers-reduced-motion: reduce){
+    .bg-decor span, .hero .wing, .mission-banner .tag .heart, .mission-banner .envelope-deco, .target-icon, .angel-illust, .charm-illust, .card, .ticket, .admin-panel, .wish-card{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="bg-decor" id="bgDecor"></div>
+<button class="lang-toggle" id="langToggle">EN</button>
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow" id="heroEyebrow">💌 BEYOND THE NAME</div>
+    <h1 id="heroTitle"><span class="wing">🪽</span><span id="heroTitleText">守护天使认领</span><span class="wing right">🪽</span></h1>
+    <p id="heroDesc">选一位同事，成为TA本次活动的守护天使。悄悄了解TA的喜好，活动当天把心意变成礼物，当面交给TA。</p>
+    <div class="counter" id="counterBadge">加载中…</div>
+  </div>
+
+  <div id="app"></div>
+
+  <div class="footer-admin" id="adminEntry">管理员设置</div>
+</div>
+
+<script>
+(function(){
+  const field = document.getElementById('bgDecor');
+  const glyphs = ['✨','🕊️','⭐️','💫','🎀','🤍','🪽','💛','💗','🌟'];
+  let html = '';
+  for(let i=0;i<26;i++){
+    const g = glyphs[i % glyphs.length];
+    const top = Math.random()*100;
+    const left = Math.random()*100;
+    const size = 14 + Math.random()*16;
+    const delay = (Math.random()*4).toFixed(1);
+    html += `<span style="top:${top}%;left:${left}%;font-size:${size}px;animation-delay:${delay}s;">${g}</span>`;
+  }
+  field.innerHTML = html;
+})();
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, doc, getDoc, setDoc, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDwu9uskcPy4kIH5a99l9Yqsp073ELjC3o",
+  authDomain: "beyondthename-99b57.firebaseapp.com",
+  projectId: "beyondthename-99b57",
+  storageBucket: "beyondthename-99b57.firebasestorage.app",
+  messagingSenderId: "238869594240",
+  appId: "1:238869594240:web:ca82236e97d238019f2665",
+  measurementId: "G-F8T36ZV177"
+};
+const fbApp = initializeApp(firebaseConfig);
+const db = getFirestore(fbApp);
+const dataDocRef = doc(db, 'beyondTheName', 'data');
+
+const ADMIN_CODE = 'ANGEL2026';
+
+const app = document.getElementById('app');
+const counterBadge = document.getElementById('counterBadge');
+
+function esc(s){
+  const d = document.createElement('div');
+  d.textContent = s == null ? '' : s;
+  return d.innerHTML;
+}
+function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+function shuffleArray(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* ================= i18n ================= */
+let LANG = (function(){
+  try{ return localStorage.getItem('btn_lang') || 'zh'; }catch(e){ return 'zh'; }
+})();
+const I18N = {
+  zh:{
+    hero_title:'守护天使认领', hero_desc:'选一位同事，成为TA本次活动的守护天使。悄悄了解TA的喜好，活动当天把心意变成礼物，当面交给TA。',
+    footer_admin:'管理员设置', counter_waiting:'等待名单设置',
+    cta_start:'开始认领', cta_continue:'继续选号认领', cta_view_ticket:'查看我的守护任务', cta_enter_code:'输入口令查看任务',
+    setup_intro:'还没有员工名单。请粘贴参加活动的全部员工姓名（每行一个），保存后大家就可以打开本页面开始认领了。',
+    setup_label:'员工名单（每行一个姓名）', setup_placeholder:'张三\n李四\n王五',
+    setup_btn:'保存名单并开始', setup_err_min2:'至少需要两位员工姓名。', saving:'保存中…', save_fail:'保存失败，请检查网络后重试。',
+    login_intro:'请在下方找到并确认你自己的名字，确认后就可以选号认领同事了。',
+    login_label:'请输入并确认你的姓名', login_placeholder:'输入姓名搜索', login_empty:'没有匹配的姓名，请检查输入或联系管理员',
+    back_home:'← 返回主页', refresh:'刷新', grid_search_placeholder:'按座位号搜索，例如 007',
+    empty_seats:'没有可选的座位了，请联系管理员。',
+    confirm_eyebrow:'确认选择', confirm_title:'抽取这个座位吗？',
+    confirm_desc:'确认后系统会立刻为你揭晓要守护的同事是谁，且无法更改、无法重新选择。请记得对TA保密身份哦。',
+    confirm_cancel:'再想想', confirm_ok:'确认抽取', confirm_processing:'处理中…',
+    err_already:'你已经认领过座位了，不能重复认领。', err_taken:'手慢了，这个座位刚被别人抽走了，请重新选择。', err_generic:'出了点问题，请重试。',
+    ticket_eyebrow:'守护任务 · 已确认', ticket_desc:'现在开始，用自然的方式悄悄了解TA——聊天、共同的同事、日常互动都可以。活动当天，把准备好的礼物当面交给TA，给TA一个惊喜吧。',
+    admit_one:'入场券', view_progress:'查看认领进度', edit_card:'编辑TA的故事卡', fill_card:'填写TA的故事卡', lock_switch:'锁定屏幕 / 切换姓名',
+    invite_first:'该你了 · 悄悄了解TA，完成一张关于TA的《超越名字的故事》卡，活动当天亲手交给TA。记得对TA保密身份哦。',
+    invite_more:'继续悄悄了解TA，随时可以回来补充或修改这张卡片。别忘了对TA保密身份。',
+    f_department:'部门 / 分行', f_position:'职位', f_tenure:'入职多久', f_summary:'用一句话形容TA',
+    f_foodLike:'喜欢吃', f_foodDislike:'不喜欢吃 / 忌口', f_color:'喜欢的颜色', f_hobby:'爱好', f_message:'想对TA说的话',
+    notes_intro_first:'这张卡片是关于 <b>{name}</b> 的，不是你自己的哦。通过自然的聊天、共同的同事或日常互动去了解TA，把发现慢慢记下来。有些问题不方便打听的，不用勉强。可以先跳过，随时回来补充。',
+    notes_intro_edit:'继续完善关于 <b>{name}</b> 的故事卡，你随时可以回来修改。',
+    save:'保存', skip:'暂时跳过', cancel:'取消',
+    saved_eyebrow:'已保存', saved_title:'卡片更新好了', saved_desc:'TA的喜好都记录好了，方便你准备礼物哦',
+    edit_more:'再改改', back_to_ticket:'返回我的门票',
+    readonly_intro:'当前认领情况（仅查看，不能再次选择）。盖章的座位表示已经被认领，姓名保持保密。',
+    seat_taken:'已认领', seat_empty:'空缺', no_match_seats:'没有匹配的座位号',
+    admin_login_title:'请输入管理员口令', admin_login_placeholder:'口令', admin_wrong_code:'口令不正确',
+    admin_panel_title:'管理员面板', admin_total:'员工总数', admin_claimed:'已认领数',
+    admin_load_pairs:'加载完整认领名单（含资料卡）', admin_no_records:'暂无认领记录',
+    admin_view_card:'查看资料卡', admin_delete:'删除', admin_delete_confirm:'确定要删除这一条认领记录吗？该同事需要重新选号。',
+    admin_reset_label:'重设员工名单（每行一个姓名）',
+    admin_reset_btn:'保存名单', admin_reset_note:'修改名单不会自动清空已有认领记录，如需重新开始请使用下方的清空功能。',
+    admin_shuffle_btn:'打乱座位顺序（保留已认领记录）',
+    admin_shuffle_note:'如果名单是按部门/字母顺序粘贴的，座位号可能会被大家看出规律。点击这个按钮会重新打乱座位号对应的人，但已认领的记录、故事卡内容、口令都会完整保留，只是座位号会变。',
+    admin_shuffle_confirm:'确定要打乱座位顺序吗？已认领的同事会保留他们的守护对象和故事卡，只是座位号会改变。',
+    admin_clear_all_btn:'清空所有认领记录', admin_clear_warn:'此操作会让所有人重新选择，且不可撤销。',
+    admin_back:'返回活动页面',
+    toast_saved_list:'名单已保存', toast_save_fail:'保存失败，请重试', toast_min2:'至少需要两位员工姓名',
+    toast_shuffled:'座位顺序已打乱，已认领记录都保留了', toast_shuffle_fail:'打乱失败，请重试',
+    toast_cleared:'已清空所有认领记录', toast_clear_fail:'操作失败，请重试', toast_deleted:'已删除该记录', toast_delete_fail:'删除失败，请重试',
+    wish_empty:'还没有记录任何信息', conn_fail_title:'暂时连不上数据仓', conn_fail_desc:'请检查网络后重试。', retry:'重试',
+    modal_confirm_title:'请确认', modal_irreversible:'此操作不可撤销。',
+    passcode_setup_intro:'这个口令用来保护你的守护任务和资料卡，避免被别人不小心打开或修改——请设置一个你自己记得住的 4 位数字。活动主办方会保留一份资料卡内容，方便统筹礼物与流程。',
+    passcode_set_label:'设置口令（4位数字）', passcode_confirm_label:'再次输入确认', passcode_confirm_btn:'确认设置',
+    passcode_err_format:'请输入4位数字', passcode_err_mismatch:'两次输入不一致',
+    passcode_unlock_intro:'欢迎回来，<b>{name}</b>。请输入你之前设置的口令，查看你的守护任务。',
+    passcode_unlock_label:'输入口令', passcode_unlock_btn:'解锁', passcode_forgot:'忘记口令了', passcode_wrong:'口令不正确',
+    passcode_unlocking:'解锁中…', passcode_setting:'设置中…',
+    toast_forgot_passcode:'请联系管理员帮你重置口令（资料不会丢失）。',
+    admin_reset_code:'重置口令', toast_passcode_reset:'已重置该同事的口令',
+    mission_eyebrow:'你的秘密任务', mission_tag:'你的秘密任务',
+    goal_label:'你的任务', goal_desc:'在活动前，认识你的伙伴，并完成你的任务。',
+    mission_rules_title:'任务小规则 💗',
+    special_mission_badge:'特别任务',
+    special_mission_title:'需要为你的 Secret Partner 准备一个包包挂件，在 event 当晚送给他/她哦！',
+    mission_tagline:'超越名字，看见彼此 💌',
+    journey_title:'你的任务进度',
+    journey_step1_title:'认识你的守护对象',
+    journey_step2_title:'填写TA的故事卡', journey_step2_desc:'悄悄了解TA，把发现记录下来。', journey_step2_done_desc:'已完成，随时可以回来修改。',
+    journey_fill_btn:'现在就填 →', journey_edit_btn:'编辑故事卡',
+    journey_step3_title:'准备一个包包挂件', journey_step3_desc:'为TA准备一个包包挂件。', journey_gift_check_label:'我已经准备好礼物了', journey_step3_done_desc:'礼物已经准备好了！',
+    journey_step4_title:'活动当天亲手交给TA', journey_step4_desc:'活动当天一起揭晓身份，把礼物亲手交给TA。',
+    journey_complete_note:'一切都准备好了，活动当天带过去就行！🎉',
+  },
+  en:{
+    hero_title:'Guardian Angel Mission', hero_desc:'Pick a colleague to be their Secret Angel for this event. Quietly learn what they love, then turn it into a gift and hand it to them in person on the day.',
+    footer_admin:'Admin Settings', counter_waiting:'Waiting for name list setup',
+    cta_start:'Start Claiming', cta_continue:'Continue Picking a Number', cta_view_ticket:'View My Mission', cta_enter_code:'Enter Passcode to View Mission',
+    setup_intro:"No employee list yet. Paste everyone's name who's joining the event (one per line), then save so everyone can start claiming.",
+    setup_label:'Employee list (one name per line)', setup_placeholder:'Jane\nJohn\nAlex',
+    setup_btn:'Save List & Start', setup_err_min2:'At least two names are required.', saving:'Saving…', save_fail:'Save failed, please check your network and retry.',
+    login_intro:'Find and confirm your own name below — once confirmed, you can pick a number to claim a colleague.',
+    login_label:'Enter and confirm your name', login_placeholder:'Search your name', login_empty:'No matching name found — check your spelling or contact the admin',
+    back_home:'← Back to home', refresh:'Refresh', grid_search_placeholder:'Search by seat number, e.g. 007',
+    empty_seats:'No seats available — please contact the admin.',
+    confirm_eyebrow:'Confirm Selection', confirm_title:'Draw this seat?',
+    confirm_desc:"Once confirmed, we'll reveal your assigned partner right away — this can't be changed or redone. Please keep your identity a secret from them!",
+    confirm_cancel:'Let me think', confirm_ok:'Confirm Draw', confirm_processing:'Processing…',
+    err_already:"You've already claimed a seat — you can't claim another.", err_taken:'Too slow! Someone just took this seat. Please pick another.', err_generic:'Something went wrong, please try again.',
+    ticket_eyebrow:'Mission Confirmed', ticket_desc:"Now it's time to naturally get to know them — chatting, mutual colleagues, or everyday moments all work. On the event day, hand over the gift in person for a lovely surprise.",
+    admit_one:'ADMIT ONE', view_progress:'View Claim Progress', edit_card:"Edit Their Story Card", fill_card:"Fill In Their Story Card", lock_switch:'Lock screen / Switch name',
+    invite_first:"It's your turn — quietly get to know them, and fill out a \"Beyond the Name\" story card. Bring it with you on the event day, and remember to keep your identity a secret.",
+    invite_more:'Keep quietly getting to know them — you can come back anytime to add or edit this card. Remember to stay secret!',
+    f_department:'Department / Branch', f_position:'Position', f_tenure:'Time with the company', f_summary:'Describe them in one sentence',
+    f_foodLike:'Likes to eat', f_foodDislike:"Dislikes / dietary restrictions", f_color:'Favorite color', f_hobby:'Hobbies', f_message:'A message for them',
+    notes_intro_first:'This card is about <b>{name}</b>, not about you. Get to know them through natural chats, mutual colleagues, or everyday moments, and jot down what you discover. If something feels too personal to ask, feel free to skip it — you can always come back later.',
+    notes_intro_edit:'Keep filling in the story card for <b>{name}</b> — you can come back and edit anytime.',
+    save:'Save', skip:'Skip for now', cancel:'Cancel',
+    saved_eyebrow:'Saved', saved_title:'Card updated', saved_desc:"All their preferences are noted down — handy for picking the perfect gift",
+    edit_more:'Edit more', back_to_ticket:'Back to my ticket',
+    readonly_intro:"Current claim status (view only, can't select again). Stamped seats have already been claimed — names stay secret.",
+    seat_taken:'Claimed', seat_empty:'Open', no_match_seats:'No matching seat number',
+    admin_login_title:'Enter admin passcode', admin_login_placeholder:'Passcode', admin_wrong_code:'Incorrect passcode',
+    admin_panel_title:'Admin Panel', admin_total:'Total employees', admin_claimed:'Claimed',
+    admin_load_pairs:'Load full claim list (with story cards)', admin_no_records:'No claim records yet',
+    admin_view_card:'View story card', admin_delete:'Delete', admin_delete_confirm:'Delete this claim record? This colleague will need to pick a new seat.',
+    admin_reset_label:'Reset employee list (one name per line)',
+    admin_reset_btn:'Save List', admin_reset_note:"Editing the list won't automatically clear existing claims — use the clear function below to start over.",
+    admin_shuffle_btn:'Shuffle Seat Order (keeps existing claims)',
+    admin_shuffle_note:"If the list was pasted in by department or alphabetically, seat numbers can reveal a pattern. This button reshuffles which person each seat number points to — existing claims, story cards, and passcodes stay fully intact, only the seat numbers change.",
+    admin_shuffle_confirm:"Shuffle the seat order? Anyone who's already claimed will keep their assigned partner and story card — only their seat number will change.",
+    admin_clear_all_btn:'Clear All Claim Records', admin_clear_warn:'This will make everyone re-pick and cannot be undone.',
+    admin_back:'Back to event page',
+    toast_saved_list:'List saved', toast_save_fail:'Save failed, please try again', toast_min2:'At least two names are required',
+    toast_shuffled:'Seat order shuffled — all existing claims were kept', toast_shuffle_fail:'Shuffle failed, please try again',
+    toast_cleared:'All claim records cleared', toast_clear_fail:'Action failed, please try again', toast_deleted:'Record deleted', toast_delete_fail:'Delete failed, please try again',
+    wish_empty:'No information recorded yet', conn_fail_title:"Can't reach the data store", conn_fail_desc:'Please check your network and retry.', retry:'Retry',
+    modal_confirm_title:'Please confirm', modal_irreversible:'This action cannot be undone.',
+    passcode_setup_intro:"This passcode protects your mission and story card from being opened or edited by someone else — pick a 4-digit code you'll remember. The event organizer keeps a copy of your card to help coordinate gifts and logistics.",
+    passcode_set_label:'Set a passcode (4 digits)', passcode_confirm_label:'Confirm your passcode', passcode_confirm_btn:'Confirm',
+    passcode_err_format:'Please enter 4 digits', passcode_err_mismatch:"The two entries don't match",
+    passcode_unlock_intro:'Welcome back, <b>{name}</b>. Enter the passcode you set before to view your mission.',
+    passcode_unlock_label:'Enter passcode', passcode_unlock_btn:'Unlock', passcode_forgot:'Forgot passcode', passcode_wrong:'Incorrect passcode',
+    passcode_unlocking:'Unlocking…', passcode_setting:'Setting…',
+    toast_forgot_passcode:"Please contact the admin to reset your passcode — your info won't be lost.",
+    admin_reset_code:'Reset Passcode', toast_passcode_reset:"This colleague's passcode has been reset",
+    mission_eyebrow:'YOUR SECRET MISSION', mission_tag:'Your Secret Mission',
+    goal_label:'Your Mission', goal_desc:'Get to know your assigned partner, and complete your mission before the event.',
+    mission_rules_title:'Mission Rules 💗',
+    special_mission_badge:'Special Mission',
+    special_mission_title:'Prepare bag charm for your Secret Partner, and give it to them on the event day!',
+    mission_tagline:"Beyond a name, there's someone to see.",
+    journey_title:'Your Mission Progress',
+    journey_step1_title:'Get to Know Your Partner',
+    journey_step2_title:'Fill In Their Story Card', journey_step2_desc:"Quietly get to know them, then fill in what you've learned.", journey_step2_done_desc:'Done — you can still come back and edit it anytime.',
+    journey_fill_btn:'Fill In Now →', journey_edit_btn:'Edit Story Card',
+    journey_step3_title:'Prepare a Bag Charm Gift', journey_step3_desc:'Prepare a bag charm for your Secret Partner.', journey_gift_check_label:"I've prepared the gift", journey_step3_done_desc:'Gift ready!',
+    journey_step4_title:'Reveal & Give It in Person', journey_step4_desc:'On the event day, reveal your identity and hand over the gift in person.',
+    journey_complete_note:'All set! Just bring it all to the event. 🎉',
+  }
+};
+function t(key){
+  const d = I18N[LANG] || I18N.zh;
+  return d[key] !== undefined ? d[key] : (I18N.zh[key] !== undefined ? I18N.zh[key] : key);
+}
+function tpl(key, vars){
+  let s = t(key);
+  if(vars){ Object.keys(vars).forEach(k => { s = s.split('{'+k+'}').join(vars[k]); }); }
+  return s;
+}
+function applyStaticText(){
+  document.getElementById('heroTitleText').textContent = t('hero_title');
+  document.getElementById('heroDesc').textContent = t('hero_desc');
+  document.getElementById('adminEntry').textContent = t('footer_admin');
+  document.getElementById('langToggle').textContent = LANG === 'zh' ? 'EN' : '中文';
+}
+
+/* ================= Shared data store (no login required for anyone) ================= */
+// One-time seed snapshot pulled from the old backend before migrating to Firestore.
+// Used only if the Firestore document doesn't exist yet (first load after migration).
+const LEGACY_SEED_DATA = {"employees":["HQ-HESTER","MA-BEI ER","MA-BERYL","MA-TING TING","MA-JASYE","MA-PEI SHIN","MA-XIANG YEE","MA-DR JJ","SU-AI NI","SU-SANNY","SU-DR ANN","SU-JESSICA","SU-QIAN BEI","MA-DR KENNY","CL-KETTY","CL-PINKY","CL-KAI YU","CL-ELLISE","CL-KAI WEI","CL-CASSIE","CL-DR RAINNIE","CL-DR AGNES","CL-ZI YING","PC-BETTY","PC-DR ZAELEY","PC-SU WEN","PC-GINA","PC-ZHI XIN","PC-AMANDA","SS2-DR CASSANDRA","SS2-ATHENA","SS2-YONG XIN","SS2-EN NING","SS2-WAN ROU","SS2-JESSIE","HQ-TK","HQ-SHARON","MA-JIA LIN","MA-JESSY","SU-CHERRY","MA-XUE JING","MA-RAYNA","MA-XIIAO CHYN","SU-DR MAX","SU-CORRINE","SU-JOEN","MA-DR LILY","SU-KATHERINE","SU-WEI XUAN","SS2-DR CZHIA HAO","SS2-BERRY","CL-ANGEL","CL-TAN HUI","CL-XIN YI","CL-SHARON","CL-KATRINA","CL-DR NATALIE","CL-DR SONIA","PC-JOEVIE","PC-RACHEL","PC-DR JIN QIAN","PC-CHRIS","PC-SHUE BIN","PC-WINNIE","PC-SANDY","SS2-DR WEN YUN","SS2-VERON","SS2-DR CAITLYN","SS2-CHING YUE","SS2-WAN EN","SS2-TINA","HQ-DR XUAN","HQ-DR FONG","HQ-DR NICOLE","BM-DR LEENA","HQ-CHUAH YU CHUEN","HQ-KATHERINE","HQ-CHING THING","HQ-XIN RU","HQ-LIANG","HQ-JIA XUAN","HQ-JINNY","HQ-XIN NI","HQ-IRENE","HQ-GRACEY","HQ-EVELYN","HQ-AM NICOLE","BM-WENNIE","BM-HONEY","BM-WAN YING","BM-TIFFANY","BM-ENNA","BM-YE YING","BM-ELAINE","BM-DR EE LING","BM-DR HONG","GL-REGINA","GL-YUNNY","GL-CHLOE","GL-SYVIN","GL-XIAO WEI","GL-JANICE","GL-TIFFANY","GL-DR YI WEN","SS2-DR EUNICE","GL-DR CHERYL","GL-DR TEH","GY-MANDY","GY-DR EVE","GY-AVICIA","GY-CLARISE","RU-KE XIN","RU-DR ROZANNE","RU-YY","RU-YEE JING","RU-SAFENIE","HQ-DR JAYE","HQ-JOANNE","HQ-DR JOVYN","HQ-DR JEM","HQ-CAROL","HQ-ADELINE","HQ-CELINE","HQ-KHAI XUAN","HQ-HOOI HUNG","HQ-SHUE HUI","HQ-GING HUI","HQ-ZHI TIAN","HQ-YI LING","HQ-SU JIN","HQ-PHEI CHIA","BM-ESTHER","RU-VENUS","BM-SHERLYN","BM-YEN SI","BM-AI MEI","BM-YVONNE","BM-YI TING","BM-DR JOLING","RU-DR KAI","GL-KATHERINE","GL-KARENE","GL-STELLA","GL-MINDY","GL-YEN HOON","GL-HUI XIAN","GL-ESTHER","GL-DR MICHELLE","GL-DR CHAN","GL-DR JOYCE","GY-MARGARET","GY-DR SHEVERN","GY-QUNNIE","GY-IRIS","RU-YI LING","RU-DR LOO","RU-YA YA","RU-JANET","RU-YEE ANN","CL-ALICE","HQ-YU TING"],"claims":{"2":{"picker":"HQ-DR JEM","time":1784628921364,"notes":{"department":"MA","position":"Therapist","tenure":"","summary":"","foodLike":"","foodDislike":"","color":"","hobby":"","message":""},"passcode":"1234"},"11":{"picker":"HQ-KHAI XUAN","time":1784626169205,"notes":{"department":"SU","position":"","tenure":"10 years","summary":"good","foodLike":"roti","foodDislike":"","color":"blue","hobby":"swimming","message":"alright"},"passcode":"1314"}},"notes":{}};
+
+async function fetchData(){
+  try{
+    const snap = await getDoc(dataDocRef);
+    if(!snap.exists()){
+      // One-time migration: seed Firestore from the saved snapshot if it's still empty.
+      try{
+        await setDoc(dataDocRef, LEGACY_SEED_DATA);
+        return LEGACY_SEED_DATA;
+      }catch(e){ console.warn('legacy migration failed', e); }
+      return {employees:[], claims:{}};
+    }
+    const data = snap.data();
+    if(data && typeof data === 'object') return data;
+    return {__error:true};
+  }catch(e){
+    console.warn('fetchData exception', e);
+    return {__error:true, __exception: String(e)};
+  }
+}
+async function saveData(obj){
+  try{
+    await setDoc(dataDocRef, obj);
+    return true;
+  }catch(e){
+    console.warn('saveData exception', e);
+    return false;
+  }
+}
+
+// All write operations below use Firestore transactions instead of a plain
+// read-then-write, so that if two people (or two clicks) save around the same
+// moment, the second one is automatically re-run against the latest data
+// instead of silently overwriting the first one's change.
+async function claimSeat(idx, myName){
+  try{
+    await runTransaction(db, async (transaction) => {
+      const snap = await transaction.get(dataDocRef);
+      const data = snap.exists() ? snap.data() : {employees:[], claims:{}};
+      const claims = data.claims || {};
+      if(claims[String(idx)]) throw {code:'taken'};
+      const alreadyPicked = Object.keys(claims).some(k => claims[k].picker === myName);
+      if(alreadyPicked) throw {code:'already'};
+      claims[String(idx)] = {picker: myName, time: Date.now(), notes: {}};
+      data.claims = claims;
+      transaction.set(dataDocRef, data);
+    });
+    return {ok:true};
+  }catch(e){
+    if(e && e.code === 'taken') return {ok:false, reason:'taken'};
+    if(e && e.code === 'already') return {ok:false, reason:'already'};
+    console.warn('claimSeat exception', e);
+    return {ok:false, reason:'error'};
+  }
+}
+
+async function saveClaimExtra(idx, patchFn){
+  try{
+    await runTransaction(db, async (transaction) => {
+      const snap = await transaction.get(dataDocRef);
+      if(!snap.exists()) throw {code:'missing'};
+      const data = snap.data();
+      if(!data.claims || !data.claims[String(idx)]) throw {code:'missing'};
+      patchFn(data.claims[String(idx)]);
+      transaction.set(dataDocRef, data);
+    });
+    return {ok:true};
+  }catch(e){
+    return {ok:false};
+  }
+}
+
+async function saveEmployeesList(names){
+  try{
+    await runTransaction(db, async (transaction) => {
+      const snap = await transaction.get(dataDocRef);
+      const data = snap.exists() ? snap.data() : {};
+      data.employees = names;
+      if(!data.claims) data.claims = {};
+      transaction.set(dataDocRef, data);
+    });
+    return true;
+  }catch(e){
+    console.warn('saveEmployeesList exception', e);
+    return false;
+  }
+}
+
+async function clearAllClaims(){
+  try{
+    await runTransaction(db, async (transaction) => {
+      const snap = await transaction.get(dataDocRef);
+      const data = snap.exists() ? snap.data() : {};
+      data.claims = {};
+      transaction.set(dataDocRef, data);
+    });
+    return true;
+  }catch(e){
+    return false;
+  }
+}
+
+async function deleteClaim(idx){
+  try{
+    await runTransaction(db, async (transaction) => {
+      const snap = await transaction.get(dataDocRef);
+      const data = snap.exists() ? snap.data() : {};
+      if(!data.claims) data.claims = {};
+      delete data.claims[String(idx)];
+      transaction.set(dataDocRef, data);
+    });
+    return true;
+  }catch(e){
+    return false;
+  }
+}
+
+// Reshuffles the seat-number order (so it no longer follows the pasted-in sequence),
+// while remapping any existing claims onto the same people at their new seat numbers.
+async function shuffleEmployeesPreserveClaims(){
+  try{
+    let resultInfo = {total:0, claimsCount:0};
+    await runTransaction(db, async (transaction) => {
+      const snap = await transaction.get(dataDocRef);
+      if(!snap.exists()) throw {code:'missing'};
+      const data = snap.data();
+      if(!Array.isArray(data.employees)) throw {code:'missing'};
+      const oldEmployees = data.employees;
+      const oldClaims = data.claims || {};
+      const newEmployees = shuffleArray(oldEmployees);
+      const newClaims = {};
+      Object.keys(oldClaims).forEach(k => {
+        const idx = parseInt(k, 10);
+        const name = oldEmployees[idx];
+        const newIdx = newEmployees.indexOf(name);
+        if(newIdx !== -1){
+          newClaims[String(newIdx)] = oldClaims[k];
+        }
+      });
+      data.employees = newEmployees;
+      data.claims = newClaims;
+      transaction.set(dataDocRef, data);
+      resultInfo = {total: newEmployees.length, claimsCount: Object.keys(newClaims).length};
+    });
+    return {ok:true, ...resultInfo};
+  }catch(e){
+    return {ok:false};
+  }
+}
+
+/* ================= UI helpers ================= */
+function buildNotesCardHtml(targetName, data){
+  const fields = [
+    ['🏢', t('f_department'), data && data.department],
+    ['💼', t('f_position'), data && data.position],
+    ['🗓️', t('f_tenure'), data && data.tenure],
+    ['✨', t('f_summary'), data && data.summary],
+    ['🍜', t('f_foodLike'), data && data.foodLike],
+    ['🚫', t('f_foodDislike'), data && data.foodDislike],
+    ['🎨', t('f_color'), data && data.color],
+    ['🎯', t('f_hobby'), data && data.hobby],
+    ['💌', t('f_message'), data && data.message],
+  ].filter(f => f[2]);
+  const rowsHtml = fields.length > 0
+    ? fields.map(f => `<div class="wish-row"><span class="wi-icon">${f[0]}</span><span class="wi-label">${esc(f[1])}</span><span class="wi-value">${esc(f[2])}</span></div>`).join('')
+    : `<div class="wish-empty">${esc(t('wish_empty'))}</div>`;
+  return `<div class="wish-card"><h4>Beyond the Name · ${esc(targetName)}</h4>${rowsHtml}</div>`;
+}
+
+function showToast(msg){
+  const el = document.createElement('div');
+  el.textContent = msg;
+  el.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink-2);color:var(--paper);border:1px solid var(--line);padding:10px 20px;border-radius:8px;font-size:13.5px;z-index:80;';
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 2200);
+}
+function showConfirm(message, onYes){
+  const mask = document.createElement('div');
+  mask.className = 'modal-mask';
+  mask.innerHTML = `
+    <div class="modal">
+      <div class="eyebrow danger">${esc(t('modal_confirm_title'))}</div>
+      <h3>${esc(message)}</h3>
+      <p>${esc(t('modal_irreversible'))}</p>
+      <div class="actions">
+        <button class="btn btn-ghost" id="noBtn">${esc(t('confirm_cancel'))}</button>
+        <button class="btn btn-dark" id="yesBtn">${esc(t('admin_delete'))==='Delete' ? 'Confirm' : '确定'}</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(mask);
+  document.getElementById('noBtn').onclick = () => mask.remove();
+  document.getElementById('yesBtn').onclick = () => { mask.remove(); onYes(); };
+}
+function closeModal(mask){ mask.remove(); }
+
+function celebrate(){
+  const layer = document.createElement('div');
+  layer.className = 'sparkle-burst';
+  const glyphs = ['✨','💛','🎀','⭐️','🪽','💫','💗'];
+  let html = '';
+  for(let i=0;i<18;i++){
+    const g = glyphs[i % glyphs.length];
+    const left = 8 + Math.random()*84;
+    const bottom = 6 + Math.random()*18;
+    const delay = (Math.random()*0.5).toFixed(2);
+    const size = 16 + Math.random()*14;
+    html += `<span style="left:${left}%;bottom:${bottom}%;font-size:${size}px;animation-delay:${delay}s;">${g}</span>`;
+  }
+  layer.innerHTML = html;
+  document.body.appendChild(layer);
+  setTimeout(() => layer.remove(), 1900);
+}
+
+/* ================= View registry (for language toggle re-render) ================= */
+let CURRENT_VIEW = () => go(render);
+function go(fn, ...args){
+  CURRENT_VIEW = () => fn(...args);
+  return fn(...args);
+}
+
+const STATE = { myName: null, targetIdx: null, targetName: null, notes: null, passcode: null };
+
+function updateCounterFromData(data){
+  if(!data || data.__error || !Array.isArray(data.employees) || data.employees.length === 0){
+    counterBadge.textContent = t('counter_waiting');
+    return;
+  }
+  const takenCount = Object.keys(data.claims || {}).length;
+  const label = LANG === 'zh' ? ('已认领 <b>' + takenCount + '</b> / ' + data.employees.length) : ('Claimed <b>' + takenCount + '</b> / ' + data.employees.length);
+  counterBadge.innerHTML = label;
+}
+
+async function render(){
+  const data = await fetchData();
+  updateCounterFromData(data);
+  if(data && data.__error){
+    go(renderConnError, data);
+    return;
+  }
+  if(!data || !Array.isArray(data.employees) || data.employees.length === 0){
+    go(renderSetup);
+    return;
+  }
+  go(renderHome, data.employees, data);
+}
+
+function renderConnError(data){
+  const detail = data && data.__status ? ((LANG==='zh'?'错误代码：':'Error code: ') + data.__status) : (data && data.__exception ? ((LANG==='zh'?'错误信息：':'Error: ') + esc(data.__exception)) : '');
+  app.innerHTML = `
+    <div class="card" style="text-align:center;">
+      <div class="eyebrow" style="color:var(--gold-deep);">${esc(t('conn_fail_title'))}</div>
+      <h3 style="margin-top:8px;">${esc(t('conn_fail_title'))}</h3>
+      <p style="font-size:13.5px;color:#9C8574;margin-top:8px;">${esc(t('conn_fail_desc'))}</p>
+      ${detail ? '<p style="font-size:12px;color:#B99;margin-top:4px;">' + detail + '</p>' : ''}
+      <button class="btn btn-gold" id="retryBtn" style="margin-top:14px;">${esc(t('retry'))}</button>
+    </div>
+  `;
+  document.getElementById('retryBtn').onclick = () => go(render);
+}
+
+const MISSION_STEPS = [
+  {color:'pink',
+   en:{title:'Keep it Secret!', desc:"Please don't tell your partner that you are their Secret Angel."},
+   zh:{title:'保密你的身份', desc:'请不要告诉对方你是TA的守护天使，让惊喜留到活动当天！'}},
+  {color:'purple',
+   en:{title:'Get to Know Naturally', desc:'Chat, spend time together, or interact in daily moments to get to know each other naturally.'},
+   zh:{title:'自然地去认识', desc:'可以通过聊天、共同的同事或日常互动，以轻松的方式了解对方。'}},
+  {color:'blue',
+   en:{title:'Be Respectful', desc:'If you have any questions, please ask respectfully. Respect each other, no pressure!'},
+   zh:{title:'尊重与体谅', desc:'若有些问题对方不方便分享，请尊重对方，不必勉强哦！'}},
+  {color:'orange',
+   en:{title:'Complete Your Mission', desc:'Take your time, get to know your partner with your heart, and make this journey meaningful!'},
+   zh:{title:'用心完成每一步', desc:'慢慢完成任务，用心认识你的伙伴，让这段旅程更有意义！'}},
+];
+function mstep(step){
+  return (LANG === 'zh' ? step.zh : step.en);
+}
+
+function getGiftDone(idx){
+  try{ return localStorage.getItem('btn_gift_done_' + idx) === '1'; }catch(e){ return false; }
+}
+function setGiftDone(idx, val){
+  try{ localStorage.setItem('btn_gift_done_' + idx, val ? '1' : '0'); }catch(e){}
+}
+
+function targetIconSvg(size){
+  return `<svg class="target-icon" width="${size}" height="${size}" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="29" fill="#F0919F"/>
+    <circle cx="32" cy="32" r="22" fill="#FFFDF8"/>
+    <circle cx="32" cy="32" r="15" fill="#F2A65A"/>
+    <circle cx="32" cy="32" r="8" fill="#FFFDF8"/>
+    <circle cx="32" cy="32" r="3.2" fill="#E08A3C"/>
+    <line x1="6" y1="58" x2="27" y2="37" stroke="#8A6F8C" stroke-width="3" stroke-linecap="round"/>
+    <polygon points="27,37 24,30 34,34" fill="#6B4A57"/>
+  </svg>`;
+}
+
+function angelAvatarHtml(){
+  return `
+    <svg class="angel-illust" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="10" rx="15" ry="5" fill="none" stroke="#F2C879" stroke-width="4"/>
+      <path d="M50,52 C18,40 2,58 8,78 C13,94 34,94 46,74 Z" fill="#FFFFFF" stroke="#E3D8F2" stroke-width="1.5"/>
+      <path d="M22,60 C16,58 12,66 16,72" fill="none" stroke="#E3D8F2" stroke-width="1.2"/>
+      <path d="M50,52 C82,40 98,58 92,78 C87,94 66,94 54,74 Z" fill="#FFFFFF" stroke="#E3D8F2" stroke-width="1.5"/>
+      <path d="M78,60 C84,58 88,66 84,72" fill="none" stroke="#E3D8F2" stroke-width="1.2"/>
+      <path d="M32,96 C32,80 38,70 50,70 C62,70 68,80 68,96 Z" fill="#FFFDF8" stroke="#F0DCC6" stroke-width="1.5"/>
+      <circle cx="50" cy="42" r="26" fill="#FBDCC0"/>
+      <path d="M24,40 C22,20 34,10 50,10 C66,10 78,20 76,40 C72,30 64,36 64,28 C58,36 48,26 46,32 C40,24 30,30 30,38 C28,32 25,34 24,40 Z" fill="#7A5B45"/>
+      <path d="M27,36 C33,30 30,24 34,20" fill="none" stroke="#8F6B50" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M70,34 C66,28 70,24 66,18" fill="none" stroke="#8F6B50" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M35,44 Q40,49 45,44" fill="none" stroke="#4A3A2E" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M55,44 Q60,49 65,44" fill="none" stroke="#4A3A2E" stroke-width="2.2" stroke-linecap="round"/>
+      <ellipse cx="33" cy="50" rx="6" ry="4" fill="#F4A6A6" opacity=".65"/>
+      <ellipse cx="67" cy="50" rx="6" ry="4" fill="#F4A6A6" opacity=".65"/>
+      <path d="M45,54 Q50,58 55,54" fill="none" stroke="#C2685C" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M40,84 C40,74 60,74 60,84 L60,96 L40,96 Z" fill="#FFF3E4" stroke="#F0DCC6" stroke-width="1.2"/>
+      <path d="M44,90 Q50,80 56,90 Q50,98 44,90 Z" fill="#F0919F" stroke="#E27E8F" stroke-width="1.2"/>
+      <circle cx="34" cy="88" r="6" fill="#FBDCC0"/>
+      <circle cx="66" cy="88" r="6" fill="#FBDCC0"/>
+    </svg>
+  `;
+}
+function bagCharmHtml(){
+  return `
+    <svg class="charm-illust" viewBox="0 0 150 130" xmlns="http://www.w3.org/2000/svg">
+      <!-- tote bag -->
+      <path d="M28,44 C28,20 46,10 54,10 C62,10 80,20 80,44" fill="none" stroke="#D9B98A" stroke-width="5" stroke-linecap="round"/>
+      <path d="M18,48 C18,42 22,38 30,38 L78,38 C86,38 90,42 90,48 L96,98 C97,108 90,114 80,114 L28,114 C18,114 11,108 12,98 Z" fill="#FFF6EA" stroke="#E9D3AE" stroke-width="1.5"/>
+      <path d="M18,48 C18,42 22,38 30,38 L78,38 C86,38 90,42 90,48 L91,56 C70,50 38,50 17,56 Z" fill="#FCEAD2" stroke="#E9D3AE" stroke-width="1.2"/>
+      <line x1="54" y1="52" x2="50" y2="112" stroke="#EADFC4" stroke-width="1.4"/>
+      <polygon points="33,72 35.5,78 42,78 36.5,82 38.5,88 33,84 27.5,88 29.5,82 24,78 30.5,78" fill="#F2C879"/>
+      <path d="M62,78 Q67,70 72,76 Q77,70 82,78 Q77,88 72,92 Q67,88 62,78 Z" fill="#F0919F"/>
+
+      <!-- clip + strap linking charm to the bag handle -->
+      <circle cx="84" cy="30" r="6" fill="none" stroke="#E0A83C" stroke-width="3"/>
+      <path d="M89,34 C96,40 100,46 103,52" fill="none" stroke="#E0A83C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 6"/>
+
+      <!-- star-person charm -->
+      <g transform="translate(116,78)">
+        <polygon points="0,-24 6,-8.3 22.8,-7.4 9.7,3.1 14.2,19.4 0,10.2 -14.2,19.4 -9.7,3.1 -22.8,-7.4 -6,-8.3"
+          fill="#F7C948" stroke="#E0A83C" stroke-width="2.2" stroke-linejoin="round"/>
+        <line x1="-19" y1="4" x2="-27" y2="12" stroke="#E0A83C" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="19" y1="4" x2="27" y2="12" stroke="#E0A83C" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M-8,-3 Q-5,1 -2,-3" fill="none" stroke="#6B4A2E" stroke-width="2" stroke-linecap="round"/>
+        <path d="M2,-3 Q5,1 8,-3" fill="none" stroke="#6B4A2E" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="-10" cy="3" rx="3.4" ry="2.2" fill="#F4A6A6" opacity=".7"/>
+        <ellipse cx="10" cy="3" rx="3.4" ry="2.2" fill="#F4A6A6" opacity=".7"/>
+        <path d="M-4,6 Q0,9 4,6" fill="none" stroke="#8A5A2E" stroke-width="1.8" stroke-linecap="round"/>
+      </g>
+      <circle cx="128" cy="52" r="2.4" fill="#F2C879"/>
+      <circle cx="20" cy="30" r="2" fill="#F0919F"/>
+    </svg>
+  `;
+}
+
+function missionCoverHtml(){
+  return `
+    <div class="mission-banner">
+      <span class="mb-deco twinkle" style="top:-14px;left:2%;font-size:20px;">⭐️</span>
+      <span class="mb-deco twinkle" style="top:6px;left:14%;font-size:13px;animation-delay:.6s;">✨</span>
+      <span class="mb-deco spin" style="top:-4px;right:16%;font-size:15px;">✨</span>
+      <div class="tag">
+        ${esc(t('mission_tag'))} <span class="heart">❤️</span>
+        <span class="envelope-deco">💌</span>
+      </div>
+    </div>
+    <div class="mission-goal">
+      ${targetIconSvg(52)}
+      <div class="goal-text">
+        <b>${esc(t('goal_label'))}</b>
+        <p>${esc(t('goal_desc'))}</p>
+      </div>
+    </div>
+    <div class="mission-rules-title">${esc(t('mission_rules_title'))}</div>
+    <div class="rule-grid">
+      ${MISSION_STEPS.map((s, i) => { const m = mstep(s); return `
+        <div class="rule-card ${s.color}">
+          <div class="num">${i+1}</div>
+          <h5>${esc(m.title)}</h5>
+          <p>${esc(m.desc)}</p>
+        </div>
+      `; }).join('')}
+    </div>
+    <div class="special-mission">
+      <div class="sm-badge">${esc(t('special_mission_badge'))}</div>
+      <span class="sm-deco twinkle" style="top:2px;right:14%;font-size:16px;">✨</span>
+      <span class="sm-deco twinkle" style="bottom:10px;left:6%;font-size:18px;animation-delay:.5s;">💗</span>
+      ${angelAvatarHtml()}
+      <div>
+        <h5>${esc(t('special_mission_title'))}</h5>
+      </div>
+      ${bagCharmHtml()}
+    </div>
+    <div class="mission-tagline">
+      ${esc(t('mission_tagline'))}
+    </div>
+  `;
+}
+
+/* ---- Your Mission Progress checklist (shown on the ticket page, tied to real progress) ---- */
+function journeyBoxHtml(idx, notes){
+  const hasNotes = notes && Object.values(notes).some(v => v);
+  const giftDone = getGiftDone(idx);
+  const step1Done = true; // claiming the seat is what got them here
+  const step2Done = hasNotes;
+  const step3Done = giftDone;
+
+  function stepClass(done, isCurrent){
+    if(done) return 'done';
+    if(isCurrent) return 'current';
+    return 'upcoming';
+  }
+
+  const step2IsCurrent = step1Done && !step2Done;
+  const step3IsCurrent = step2Done && !step3Done;
+  const step4IsCurrent = step3Done;
+
+  return `
+    <div class="journey-box">
+      <div class="journey-title">${esc(t('journey_title'))}</div>
+
+      <div class="journey-step done">
+        <div class="journey-check">✓</div>
+        <div class="journey-text">
+          <h5>${esc(t('journey_step1_title'))}</h5>
+        </div>
+      </div>
+
+      <div class="journey-step ${stepClass(step2Done, step2IsCurrent)}">
+        <div class="journey-check">${step2Done ? '✓' : ''}</div>
+        <div class="journey-text">
+          <h5>${esc(t('journey_step2_title'))}</h5>
+          ${step2IsCurrent ? `<p>${esc(t('journey_step2_desc'))}</p><button class="btn btn-gold" id="journeyFillBtn">${esc(hasNotes ? t('journey_edit_btn') : t('journey_fill_btn'))}</button>` : ''}
+          ${step2Done ? `<p>${esc(t('journey_step2_done_desc'))}</p>` : ''}
+        </div>
+      </div>
+
+      <div class="journey-step ${stepClass(step3Done, step3IsCurrent)}">
+        <div class="journey-check">${step3Done ? '✓' : ''}</div>
+        <div class="journey-text">
+          <h5>${esc(t('journey_step3_title'))}</h5>
+          ${step3IsCurrent ? `
+            <p>${esc(t('journey_step3_desc'))}</p>
+            <label class="journey-gift-check"><input type="checkbox" id="journeyGiftCheck"> ${esc(t('journey_gift_check_label'))}</label>
+          ` : ''}
+          ${step3Done ? `<p>${esc(t('journey_step3_done_desc'))}</p>` : ''}
+        </div>
+      </div>
+
+      <div class="journey-step ${step4IsCurrent ? 'current' : 'upcoming'}">
+        <div class="journey-check"></div>
+        <div class="journey-text">
+          <h5>${esc(t('journey_step4_title'))}</h5>
+          <p>${esc(t('journey_step4_desc'))}</p>
+        </div>
+      </div>
+
+      ${step3Done ? `<div class="journey-complete-note">🎉 ${esc(t('journey_complete_note'))}</div>` : ''}
+    </div>
+  `;
+}
+
+function wireJourneyBox(employees, idx){
+  const fillBtn = document.getElementById('journeyFillBtn');
+  if(fillBtn){
+    fillBtn.onclick = () => {
+      const hasNotes = STATE.notes && Object.values(STATE.notes).some(v => v);
+      go(renderNotesForm, employees, idx, hasNotes ? 'edit' : 'first');
+    };
+  }
+  const giftCheck = document.getElementById('journeyGiftCheck');
+  if(giftCheck){
+    giftCheck.onchange = () => {
+      setGiftDone(idx, giftCheck.checked);
+      go(renderTicket, employees, idx, false);
+    };
+  }
+}
+
+function renderHome(employees, data){
+  const claims = (data && data.claims) || {};
+  let myIdx = null;
+  if(STATE.myName){
+    const found = Object.keys(claims).find(k => claims[k].picker === STATE.myName);
+    if(found !== undefined) myIdx = parseInt(found, 10);
+  }
+  let ctaLabel, ctaAction;
+  if(myIdx !== null){
+    if(STATE.passcode && STATE.targetIdx === myIdx){
+      STATE.targetName = employees[myIdx];
+      STATE.notes = claims[myIdx].notes || {};
+      ctaLabel = t('cta_view_ticket');
+      ctaAction = () => go(renderTicket, employees, myIdx, false);
+    }else{
+      ctaLabel = t('cta_enter_code');
+      ctaAction = () => go(renderPasscodeGate, employees, myIdx, STATE.myName);
+    }
+  }else if(STATE.myName){
+    ctaLabel = t('cta_continue');
+    ctaAction = () => go(renderGrid, employees, STATE.myName);
+  }else{
+    ctaLabel = t('cta_start');
+    ctaAction = () => go(renderLogin, employees);
+  }
+  app.innerHTML = `
+    <div class="card" style="text-align:center;">
+      ${missionCoverHtml()}
+      <div class="mission-cta">
+        <button class="btn btn-gold" id="homeCta">${esc(ctaLabel)}</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('homeCta').onclick = ctaAction;
+}
+
+function renderSetup(){
+  app.innerHTML = `
+    <div class="card">
+      <div class="rule-box">${esc(t('setup_intro'))}</div>
+      <label class="field-label">${esc(t('setup_label'))}</label>
+      <textarea id="setupText" placeholder="${esc(t('setup_placeholder'))}"></textarea>
+      <div id="setupErr"></div>
+      <div style="margin-top:16px;display:flex;gap:10px;">
+        <button class="btn btn-gold" id="saveEmployees">${esc(t('setup_btn'))}</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('saveEmployees').onclick = async () => {
+    const raw = document.getElementById('setupText').value;
+    const names = [...new Set(raw.split(/\r?\n/).map(s => s.trim()).filter(Boolean))];
+    const errBox = document.getElementById('setupErr');
+    if(names.length < 2){
+      errBox.innerHTML = `<div class="err-msg">${esc(t('setup_err_min2'))}</div>`;
+      return;
+    }
+    const btn = document.getElementById('saveEmployees');
+    btn.disabled = true; btn.textContent = t('saving');
+    const shuffled = shuffleArray(names);
+    const ok = await saveEmployeesList(shuffled);
+    if(!ok){
+      errBox.innerHTML = `<div class="err-msg">${esc(t('save_fail'))}</div>`;
+      btn.disabled = false; btn.textContent = t('setup_btn');
+      return;
+    }
+    go(render);
+  };
+}
+
+function renderLogin(employees){
+  app.innerHTML = `
+    <div class="card">
+      <div class="rule-box">${esc(t('login_intro'))}</div>
+      <label class="field-label">${esc(t('login_label'))}</label>
+      <input type="text" id="nameInput" placeholder="${esc(t('login_placeholder'))}" autocomplete="off">
+      <div class="name-list" id="nameResults"></div>
+      <div class="switch-link" id="backHomeFromLogin" style="margin-top:16px;">${esc(t('back_home'))}</div>
+    </div>
+  `;
+  const input = document.getElementById('nameInput');
+  const results = document.getElementById('nameResults');
+  function renderResults(q){
+    if(!q || !q.trim()){
+      results.innerHTML = '';
+      return;
+    }
+    const filtered = employees
+      .filter(n => n.toLowerCase().includes(q.toLowerCase()))
+      .slice()
+      .sort((a, b) => a.localeCompare(b));
+    if(filtered.length === 0){
+      results.innerHTML = `<div class="empty">${esc(t('login_empty'))}</div>`;
+      return;
+    }
+    results.innerHTML = filtered.slice(0,50).map(n => `<div data-name="${esc(n)}">${esc(n)}</div>`).join('');
+    results.querySelectorAll('div[data-name]').forEach(el => {
+      el.onclick = async () => {
+        const name = el.getAttribute('data-name');
+        STATE.myName = name;
+        const data = await fetchData();
+        const claims = (data && !data.__error && data.claims) || {};
+        const found = Object.keys(claims).find(k => claims[k].picker === name);
+        if(found !== undefined){
+          go(renderPasscodeGate, employees, parseInt(found,10), name);
+        }else{
+          go(renderGrid, employees, name);
+        }
+      };
+    });
+  }
+  renderResults('');
+  input.addEventListener('input', () => renderResults(input.value));
+  document.getElementById('backHomeFromLogin').onclick = () => go(renderHome, employees, {employees});
+}
+
+function renderGrid(employees, myName){
+  app.innerHTML = `
+    <div class="rule-box">${LANG==='zh' ? ('你好，<b>'+esc(myName)+'</b>。下面只显示座位号，看不到对方姓名——选定并确认后才会为你揭晓要守护的同事是谁。名单实时更新，已被认领的座位会自动盖章锁定。') : ('Hi <b>'+esc(myName)+'</b>. Only seat numbers are shown below — no names — until you confirm your pick. The list updates live, and claimed seats are stamped automatically.')}</div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="${esc(t('grid_search_placeholder'))}">
+      <button class="btn btn-ghost" id="refreshBtn">${esc(t('refresh'))}</button>
+    </div>
+    <div id="errArea"></div>
+    <div class="seat-grid" id="seatGrid"></div>
+  `;
+  document.getElementById('refreshBtn').onclick = () => go(renderGrid, employees, myName);
+
+  // Fetch once per screen-load (and on explicit refresh); typing in the search box
+  // only re-filters this cached snapshot instead of hitting the network per keystroke.
+  // The actual claim is still re-validated against fresh live data in openConfirm/claimSeat,
+  // so this can't cause a double-claim — it only affects how up-to-date the display looks.
+  let cachedClaims = {};
+
+  function draw(query){
+    const takenSet = new Set(Object.keys(cachedClaims).map(k => parseInt(k,10)));
+    const grid = document.getElementById('seatGrid');
+    const q = (query || '').replace(/\D/g, '');
+    let html = '';
+    let shown = 0;
+    employees.forEach((name, idx) => {
+      if(name === myName) return;
+      const label = String(idx+1).padStart(3,'0');
+      if(q && !label.includes(q)) return;
+      shown++;
+      const taken = takenSet.has(idx);
+      html += `
+        <div class="seat ${taken ? 'taken' : ''}" data-idx="${idx}">
+          <span class="no" style="writing-mode:horizontal-tb;font-size:20px;flex:1;text-align:center;">No.${label}</span>
+          ${taken ? '<span class="stamp">'+esc(t('seat_taken'))+'</span>' : ''}
+        </div>
+      `;
+    });
+    if(shown === 0){
+      grid.innerHTML = `<div class="empty-state">${esc(t('empty_seats'))}</div>`;
+      return;
+    }
+    grid.innerHTML = html;
+    grid.querySelectorAll('.seat:not(.taken)').forEach(el => {
+      el.onclick = () => openConfirm(parseInt(el.getAttribute('data-idx'),10), myName, employees);
+    });
+  }
+
+  async function loadAndDraw(query){
+    const data = await fetchData();
+    cachedClaims = (data && !data.__error && data.claims) || {};
+    draw(query);
+  }
+
+  loadAndDraw('');
+  document.getElementById('searchInput').addEventListener('input', (e) => draw(e.target.value));
+}
+
+function openConfirm(idx, myName, employees){
+  const label = String(idx+1).padStart(3,'0');
+  const mask = document.createElement('div');
+  mask.className = 'modal-mask';
+  mask.innerHTML = `
+    <div class="modal">
+      <div class="eyebrow" style="color:var(--gold-deep);">${esc(t('confirm_eyebrow'))}</div>
+      <h3>${esc(t('confirm_title'))}</h3>
+      <div class="target-name">No.${label}</div>
+      <p>${esc(t('confirm_desc'))}</p>
+      <div id="confirmErr"></div>
+      <div class="actions">
+        <button class="btn btn-ghost" id="cancelBtn">${esc(t('confirm_cancel'))}</button>
+        <button class="btn btn-gold" id="confirmBtn">${esc(t('confirm_ok'))}</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(mask);
+  document.getElementById('cancelBtn').onclick = () => mask.remove();
+  document.getElementById('confirmBtn').onclick = async () => {
+    const btn = document.getElementById('confirmBtn');
+    btn.disabled = true;
+    btn.textContent = t('confirm_processing');
+    const result = await claimSeat(idx, myName);
+    if(result.ok){
+      mask.remove();
+      STATE.myName = myName;
+      STATE.targetIdx = idx;
+      STATE.targetName = employees[idx];
+      STATE.notes = {};
+      STATE.passcode = null;
+      go(renderPasscodeSetup, employees, idx, myName, true);
+    }else{
+      const msg = result.reason === 'already' ? t('err_already') : ((result.reason === 'taken' || result.reason === 'race') ? t('err_taken') : t('err_generic'));
+      document.getElementById('confirmErr').innerHTML = `<div class="err-msg">${esc(msg)}</div>`;
+      btn.disabled = false;
+      btn.textContent = t('confirm_ok');
+      setTimeout(() => { mask.remove(); go(renderGrid, employees, myName); }, 1600);
+    }
+  };
+}
+
+async function renderPasscodeGate(employees, idx, myName){
+  const data = await fetchData();
+  if(data && data.__error){ go(renderConnError, data); return; }
+  const claim = data && data.claims ? data.claims[String(idx)] : null;
+  if(!claim || !claim.passcode){
+    go(renderPasscodeSetup, employees, idx, myName, false);
+  }else{
+    go(renderPasscodeUnlock, employees, idx, myName);
+  }
+}
+
+function renderPasscodeSetup(employees, idx, myName, justClaimed){
+  app.innerHTML = `
+    <div class="card">
+      <div class="rule-box"><b>${esc(t('passcode_set_label'))}</b><br>${esc(t('passcode_setup_intro'))}</div>
+      <label class="field-label">${esc(t('passcode_set_label'))}</label>
+      <input type="text" inputmode="numeric" maxlength="4" id="pcNew" placeholder="••••">
+      <label class="field-label" style="margin-top:14px;">${esc(t('passcode_confirm_label'))}</label>
+      <input type="text" inputmode="numeric" maxlength="4" id="pcNew2" placeholder="••••">
+      <div id="pcErr"></div>
+      <div style="margin-top:18px;">
+        <button class="btn btn-gold" id="pcSetBtn">${esc(t('passcode_confirm_btn'))}</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('pcSetBtn').onclick = async () => {
+    const p1 = document.getElementById('pcNew').value.trim();
+    const p2 = document.getElementById('pcNew2').value.trim();
+    const errBox = document.getElementById('pcErr');
+    if(!/^\d{4}$/.test(p1)){ errBox.innerHTML = `<div class="err-msg">${esc(t('passcode_err_format'))}</div>`; return; }
+    if(p1 !== p2){ errBox.innerHTML = `<div class="err-msg">${esc(t('passcode_err_mismatch'))}</div>`; return; }
+    const btn = document.getElementById('pcSetBtn');
+    btn.disabled = true; btn.textContent = t('passcode_setting');
+    const result = await saveClaimExtra(idx, entry => { entry.passcode = p1; });
+    if(!result.ok){
+      errBox.innerHTML = `<div class="err-msg">${esc(t('save_fail'))}</div>`;
+      btn.disabled = false; btn.textContent = t('passcode_confirm_btn');
+      return;
+    }
+    const fresh = await fetchData();
+    const freshClaim = (fresh && !fresh.__error && fresh.claims) ? fresh.claims[String(idx)] : null;
+    STATE.myName = myName;
+    STATE.targetIdx = idx;
+    STATE.targetName = employees[idx];
+    STATE.passcode = p1;
+    STATE.notes = (freshClaim && freshClaim.notes) || {};
+    go(renderTicket, employees, idx, justClaimed);
+  };
+}
+
+function renderPasscodeUnlock(employees, idx, myName){
+  app.innerHTML = `
+    <div class="card">
+      <div class="rule-box">${tpl('passcode_unlock_intro', {name: esc(myName)})}</div>
+      <label class="field-label">${esc(t('passcode_unlock_label'))}</label>
+      <input type="text" inputmode="numeric" maxlength="4" id="pcUnlock" placeholder="••••">
+      <div id="pcErr"></div>
+      <div style="margin-top:18px;display:flex;gap:10px;">
+        <button class="btn btn-gold" id="pcUnlockBtn">${esc(t('passcode_unlock_btn'))}</button>
+        <button class="btn btn-ghost" id="pcForgot">${esc(t('passcode_forgot'))}</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('pcUnlockBtn').onclick = async () => {
+    const p = document.getElementById('pcUnlock').value.trim();
+    const errBox = document.getElementById('pcErr');
+    const btn = document.getElementById('pcUnlockBtn');
+    btn.disabled = true; btn.textContent = t('passcode_unlocking');
+    const data = await fetchData();
+    if(data && data.__error){
+      errBox.innerHTML = `<div class="err-msg">${esc(t('save_fail'))}</div>`;
+      btn.disabled = false; btn.textContent = t('passcode_unlock_btn');
+      return;
+    }
+    const claim = data && data.claims ? data.claims[String(idx)] : null;
+    if(!claim || !claim.passcode){
+      errBox.innerHTML = `<div class="err-msg">${esc(t('err_generic'))}</div>`;
+      btn.disabled = false; btn.textContent = t('passcode_unlock_btn');
+      return;
+    }
+    if(p !== claim.passcode){
+      errBox.innerHTML = `<div class="err-msg">${esc(t('passcode_wrong'))}</div>`;
+      btn.disabled = false; btn.textContent = t('passcode_unlock_btn');
+      return;
+    }
+    STATE.myName = myName;
+    STATE.targetIdx = idx;
+    STATE.targetName = employees[idx];
+    STATE.passcode = p;
+    STATE.notes = claim.notes || {};
+    go(renderTicket, employees, idx, false);
+  };
+  document.getElementById('pcForgot').onclick = () => {
+    showToast(t('toast_forgot_passcode'));
+  };
+}
+
+function renderTicket(employees, idx, justClaimed){
+  const targetName = STATE.targetName || employees[idx];
+  const notes = STATE.notes || {};
+  const hasNotes = Object.values(notes).some(v => v);
+  const notesCardHtml = buildNotesCardHtml(targetName, notes);
+  app.innerHTML = `
+    <div class="ticket">
+      <div class="ticket-main">
+        <div class="ticket-eyebrow">${esc(t('ticket_eyebrow'))}</div>
+        <h2>${LANG==='zh' ? (esc(STATE.myName)+'，你的守护对象是') : (esc(STATE.myName)+", here's your assigned partner")}</h2>
+        <div class="ticket-target">${esc(targetName)}</div>
+        <div class="ticket-divider"></div>
+        <p class="ticket-note">${esc(t('ticket_desc'))}</p>
+      </div>
+      <div class="ticket-stub">
+        <div class="wing">✦</div>
+        <span>${esc(t('admit_one'))}</span>
+      </div>
+    </div>
+    ${journeyBoxHtml(idx, notes)}
+    ${notesCardHtml}
+    <div style="text-align:center;margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn btn-ghost" id="viewProgressBtn">${esc(t('view_progress'))}</button>
+      ${hasNotes ? `<button class="btn btn-ghost" id="editNotesBtn">${esc(t('edit_card'))}</button>` : ''}
+    </div>
+    <span class="switch-link" id="lockBtn">${esc(t('lock_switch'))}</span>
+  `;
+  wireJourneyBox(employees, idx);
+  document.getElementById('viewProgressBtn').onclick = () => go(renderReadOnlyGrid, employees, idx);
+  const editBtn = document.getElementById('editNotesBtn');
+  if(editBtn) editBtn.onclick = () => go(renderNotesForm, employees, idx, 'edit');
+  document.getElementById('lockBtn').onclick = () => {
+    STATE.myName = null; STATE.targetIdx = null; STATE.targetName = null; STATE.notes = null; STATE.passcode = null;
+    go(render);
+  };
+  if(justClaimed) celebrate();
+}
+
+function renderNotesForm(employees, idx, mode){
+  const existing = STATE.notes || {};
+  const targetName = STATE.targetName || employees[idx];
+  app.innerHTML = `
+    <div class="card">
+      <div class="rule-box">${mode === 'first' ? tpl('notes_intro_first', {name: esc(targetName)}) : tpl('notes_intro_edit', {name: esc(targetName)})}</div>
+      <label class="field-label">${esc(t('f_department'))}</label>
+      <input type="text" id="nfDepartment" value="${esc(existing.department || '')}">
+      <label class="field-label" style="margin-top:14px;">${esc(t('f_position'))}</label>
+      <input type="text" id="nfPosition" value="${esc(existing.position || '')}">
+      <label class="field-label" style="margin-top:14px;">${esc(t('f_tenure'))}</label>
+      <input type="text" id="nfTenure" value="${esc(existing.tenure || '')}">
+      <label class="field-label" style="margin-top:14px;">${esc(t('f_summary'))}</label>
+      <input type="text" id="nfSummary" value="${esc(existing.summary || '')}">
+      <label class="field-label" style="margin-top:14px;">${esc(t('f_foodLike'))}</label>
+      <input type="text" id="nfFoodLike" value="${esc(existing.foodLike || '')}">
+      <label class="field-label" style="margin-top:14px;">${esc(t('f_foodDislike'))}</label>
+      <input type="text" id="nfFoodDislike" value="${esc(existing.foodDislike || '')}">
+      <label class="field-label" style="margin-top:14px;">${esc(t('f_color'))}</label>
+      <input type="text" id="nfColor" value="${esc(existing.color || '')}">
+      <label class="field-label" style="margin-top:14px;">${esc(t('f_hobby'))}</label>
+      <input type="text" id="nfHobby" value="${esc(existing.hobby || '')}">
+      <label class="field-label" style="margin-top:14px;">${esc(t('f_message'))}</label>
+      <textarea id="nfMessage" style="min-height:90px;">${esc(existing.message || '')}</textarea>
+      <div id="nfErr"></div>
+      <div style="margin-top:18px;display:flex;gap:10px;">
+        <button class="btn btn-gold" id="nfSave">${esc(t('save'))}</button>
+        <button class="btn btn-ghost" id="nfSkip">${esc(mode === 'first' ? t('skip') : t('cancel'))}</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('nfSave').onclick = async () => {
+    const notesObj = {
+      department: document.getElementById('nfDepartment').value.trim(),
+      position: document.getElementById('nfPosition').value.trim(),
+      tenure: document.getElementById('nfTenure').value.trim(),
+      summary: document.getElementById('nfSummary').value.trim(),
+      foodLike: document.getElementById('nfFoodLike').value.trim(),
+      foodDislike: document.getElementById('nfFoodDislike').value.trim(),
+      color: document.getElementById('nfColor').value.trim(),
+      hobby: document.getElementById('nfHobby').value.trim(),
+      message: document.getElementById('nfMessage').value.trim(),
+    };
+    const btn = document.getElementById('nfSave');
+    btn.disabled = true;
+    btn.textContent = t('saving');
+    const result = await saveClaimExtra(idx, entry => { entry.notes = notesObj; });
+    if(!result.ok){
+      document.getElementById('nfErr').innerHTML = `<div class="err-msg">${esc(t('save_fail'))}</div>`;
+      btn.disabled = false;
+      btn.textContent = t('save');
+      return;
+    }
+    STATE.notes = notesObj;
+    go(renderNotesCardPreview, employees, idx, notesObj);
+  };
+  document.getElementById('nfSkip').onclick = () => go(renderTicket, employees, idx, false);
+}
+
+function renderNotesCardPreview(employees, idx, data){
+  const targetName = STATE.targetName || employees[idx];
+  app.innerHTML = `
+    <div class="card" style="text-align:center;">
+      <div class="eyebrow" style="color:var(--gold-deep);">${esc(t('saved_eyebrow'))}</div>
+      <h3 style="margin-top:8px;">${esc(t('saved_title'))}</h3>
+      <p style="font-size:13.5px;color:#6B6448;margin-top:8px;">${esc(t('saved_desc'))}</p>
+      ${buildNotesCardHtml(targetName, data)}
+      <div style="margin-top:22px;display:flex;gap:10px;justify-content:center;">
+        <button class="btn btn-ghost" id="ncEdit">${esc(t('edit_more'))}</button>
+        <button class="btn btn-gold" id="ncContinue">${esc(t('back_to_ticket'))}</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('ncEdit').onclick = () => go(renderNotesForm, employees, idx, 'edit');
+  document.getElementById('ncContinue').onclick = () => go(renderTicket, employees, idx, false);
+}
+
+async function renderReadOnlyGrid(employees, idx){
+  const data = await fetchData();
+  const claims = (data && !data.__error && data.claims) || {};
+  const taken = new Set(Object.keys(claims).map(k => parseInt(k,10)));
+  app.innerHTML = `
+    <div class="rule-box">${esc(t('readonly_intro'))}</div>
+    <div class="search-bar">
+      <input type="text" id="roSearch" placeholder="${esc(t('grid_search_placeholder'))}">
+      <button class="btn btn-ghost" id="roRefresh">${esc(t('refresh'))}</button>
+    </div>
+    <div class="seat-grid" id="roGrid"></div>
+    <div style="text-align:center;margin-top:22px;">
+      <button class="btn btn-gold" id="backToTicket">${esc(t('back_to_ticket'))}</button>
+    </div>
+  `;
+  function draw(query){
+    const q = (query || '').replace(/\D/g, '');
+    const grid = document.getElementById('roGrid');
+    let html = '';
+    employees.forEach((name, i) => {
+      const label = String(i+1).padStart(3,'0');
+      if(q && !label.includes(q)) return;
+      const isTaken = taken.has(i);
+      html += `
+        <div class="seat taken" style="cursor:default;${isTaken ? '' : 'opacity:1;border-style:dashed;'}">
+          <span class="no" style="writing-mode:horizontal-tb;font-size:20px;flex:1;text-align:center;">No.${label}</span>
+          ${isTaken ? '<span class="stamp">'+esc(t('seat_taken'))+'</span>' : '<span class="stamp" style="color:#6B6448;border-color:#C9BE9A;">'+esc(t('seat_empty'))+'</span>'}
+        </div>
+      `;
+    });
+    grid.innerHTML = html || `<div class="empty-state">${esc(t('no_match_seats'))}</div>`;
+  }
+  draw('');
+  document.getElementById('roSearch').addEventListener('input', e => draw(e.target.value));
+  document.getElementById('roRefresh').onclick = () => go(renderReadOnlyGrid, employees, idx);
+  document.getElementById('backToTicket').onclick = () => go(renderTicket, employees, idx, false);
+}
+
+/* ================= Admin ================= */
+document.getElementById('adminEntry').onclick = () => {
+  const mask = document.createElement('div');
+  mask.className = 'modal-mask';
+  mask.innerHTML = `
+    <div class="modal">
+      <div class="eyebrow" style="color:var(--gold-deep);">${LANG==='zh'?'管理员登录':'Admin Login'}</div>
+      <h3>${esc(t('admin_login_title'))}</h3>
+      <input type="text" id="adminCodeInput" placeholder="${esc(t('admin_login_placeholder'))}" style="margin:14px 0;">
+      <div id="adminCodeErr"></div>
+      <div class="actions">
+        <button class="btn btn-ghost" id="adminCancel">${esc(t('confirm_cancel'))}</button>
+        <button class="btn btn-gold" id="adminSubmit">${LANG==='zh'?'进入':'Enter'}</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(mask);
+  const input = document.getElementById('adminCodeInput');
+  input.focus();
+  document.getElementById('adminCancel').onclick = () => mask.remove();
+  function submit(){
+    if(input.value === ADMIN_CODE){
+      mask.remove();
+      go(renderAdmin);
+    }else{
+      document.getElementById('adminCodeErr').innerHTML = `<div class="err-msg">${esc(t('admin_wrong_code'))}</div>`;
+    }
+  }
+  document.getElementById('adminSubmit').onclick = submit;
+  input.addEventListener('keydown', e => { if(e.key === 'Enter') submit(); });
+};
+
+function showNotesModal(targetName, notes){
+  const mask = document.createElement('div');
+  mask.className = 'modal-mask';
+  mask.innerHTML = `
+    <div class="modal wide">
+      ${buildNotesCardHtml(targetName, notes)}
+      <div class="actions" style="margin-top:18px;">
+        <button class="btn btn-gold" id="closeNotesModal">${LANG==='zh'?'关闭':'Close'}</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(mask);
+  document.getElementById('closeNotesModal').onclick = () => mask.remove();
+}
+
+async function renderAdmin(){
+  const data = await fetchData();
+  if(data && data.__error){ go(renderConnError, data); return; }
+  const employees = (data && data.employees) || [];
+  const claims = (data && data.claims) || {};
+  const takenCount = Object.keys(claims).length;
+  app.innerHTML = `
+    <div class="admin-panel">
+      <h3>${esc(t('admin_panel_title'))}</h3>
+      <div class="admin-row"><span>${esc(t('admin_total'))}</span><span>${employees.length}</span></div>
+      <div class="admin-row"><span>${esc(t('admin_claimed'))}</span><span>${takenCount}</span></div>
+      <div style="margin-top:18px;">
+        <button class="btn btn-ghost" id="loadPairs">${esc(t('admin_load_pairs'))}</button>
+      </div>
+      <div class="pair-list" id="pairList"></div>
+      <div style="margin-top:26px;padding-top:18px;border-top:1px solid #EDE6CD;">
+        <label class="field-label">${esc(t('admin_reset_label'))}</label>
+        <textarea id="adminEmployeesText">${employees.join('\n')}</textarea>
+        <div style="margin-top:10px;display:flex;gap:10px;">
+          <button class="btn btn-gold" id="saveEmployeesAdmin">${esc(t('admin_reset_btn'))}</button>
+        </div>
+        <p style="font-size:12px;color:#8C7A44;margin-top:8px;">${esc(t('admin_reset_note'))}</p>
+      </div>
+      <div style="margin-top:26px;padding-top:18px;border-top:1px solid #EDE6CD;">
+        <button class="btn btn-ghost" id="shuffleSeats">${esc(t('admin_shuffle_btn'))}</button>
+        <p style="font-size:12px;color:#8C7A44;margin-top:8px;">${esc(t('admin_shuffle_note'))}</p>
+      </div>
+      <div style="margin-top:26px;padding-top:18px;border-top:1px solid #EDE6CD;">
+        <button class="btn btn-dark" id="clearClaims">${esc(t('admin_clear_all_btn'))}</button>
+        <span class="danger" style="font-size:12px;display:block;margin-top:8px;">${esc(t('admin_clear_warn'))}</span>
+      </div>
+      <div style="margin-top:22px;">
+        <button class="btn btn-ghost" id="backBtn">${esc(t('admin_back'))}</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('backBtn').onclick = () => go(render);
+  document.getElementById('loadPairs').onclick = () => {
+    const list = document.getElementById('pairList');
+    const rows = Object.keys(claims).map(k => ({
+      idx: parseInt(k,10),
+      picker: claims[k].picker,
+      target: employees[parseInt(k,10)] || '?',
+      notes: claims[k].notes || {}
+    }));
+    if(rows.length === 0){
+      list.innerHTML = `<div style="padding:10px 0;color:#8C7A44;">${esc(t('admin_no_records'))}</div>`;
+      return;
+    }
+    list.innerHTML = rows.map(r => `
+      <div class="pair-item">
+        <span class="pp">${esc(r.picker)} → ${esc(r.target)}</span>
+        <span class="actions-mini">
+          <button class="btn-mini" data-view="${r.idx}">${esc(t('admin_view_card'))}</button>
+          <button class="btn-mini" data-resetcode="${r.idx}">${esc(t('admin_reset_code'))}</button>
+          <button class="btn-mini danger" data-del="${r.idx}">${esc(t('admin_delete'))}</button>
+        </span>
+      </div>
+    `).join('');
+    list.querySelectorAll('button[data-view]').forEach(btn => {
+      btn.onclick = () => {
+        const r = rows.find(x => x.idx === parseInt(btn.getAttribute('data-view'),10));
+        showNotesModal(r.target, r.notes);
+      };
+    });
+    list.querySelectorAll('button[data-resetcode]').forEach(btn => {
+      btn.onclick = () => {
+        const idx = parseInt(btn.getAttribute('data-resetcode'),10);
+        showConfirm(LANG==='zh' ? '确定要重置该同事的口令吗？TA的守护对象和已填写的资料卡都会保留，只是需要重新设置一个新口令。' : "Reset this colleague's passcode? Their assigned partner and story card stay intact — they'll just need to set a new passcode.", async () => {
+          const result = await saveClaimExtra(idx, entry => { delete entry.passcode; });
+          showToast(result.ok ? t('toast_passcode_reset') : t('toast_save_fail'));
+          go(renderAdmin);
+        });
+      };
+    });
+    list.querySelectorAll('button[data-del]').forEach(btn => {
+      btn.onclick = () => {
+        const idx = parseInt(btn.getAttribute('data-del'),10);
+        showConfirm(t('admin_delete_confirm'), async () => {
+          const ok = await deleteClaim(idx);
+          showToast(ok ? t('toast_deleted') : t('toast_delete_fail'));
+          go(renderAdmin);
+        });
+      };
+    });
+  };
+  document.getElementById('saveEmployeesAdmin').onclick = async () => {
+    const raw = document.getElementById('adminEmployeesText').value;
+    const names = [...new Set(raw.split(/\r?\n/).map(s => s.trim()).filter(Boolean))];
+    if(names.length < 2){ showToast(t('toast_min2')); return; }
+    const ok = await saveEmployeesList(names);
+    showToast(ok ? t('toast_saved_list') : t('toast_save_fail'));
+    go(renderAdmin);
+  };
+  document.getElementById('shuffleSeats').onclick = () => {
+    showConfirm(t('admin_shuffle_confirm'), async () => {
+      const result = await shuffleEmployeesPreserveClaims();
+      showToast(result.ok ? t('toast_shuffled') : t('toast_shuffle_fail'));
+      go(renderAdmin);
+    });
+  };
+  document.getElementById('clearClaims').onclick = () => {
+    showConfirm(LANG==='zh' ? '确定要清空所有认领记录吗？' : 'Clear all claim records?', async () => {
+      const ok = await clearAllClaims();
+      showToast(ok ? t('toast_cleared') : t('toast_clear_fail'));
+      go(renderAdmin);
+    });
+  };
+}
+
+/* ================= Language toggle ================= */
+document.getElementById('langToggle').onclick = () => {
+  LANG = LANG === 'zh' ? 'en' : 'zh';
+  try{ localStorage.setItem('btn_lang', LANG); }catch(e){}
+  applyStaticText();
+  CURRENT_VIEW();
+};
+
+applyStaticText();
+go(render);
+</script>
+
+</body>
+</html>
